@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruleset name="ECommerce Benchmark Code Smell Rules"
+         xmlns="http://pmd.sourceforge.net/ruleset/2.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="
+         http://pmd.sourceforge.net/ruleset/2.0.0
+         https://pmd.github.io/schema/ruleset_2_0_0.xsd">
+
+    <description>
+        PMD 7 Ruleset for E-Commerce Benchmark Evaluation.
+    </description>
+
+    <!-- 1. God Class / Too Many Methods -->
+    <rule ref="category/java/design.xml/GodClass"/>
+    <rule ref="category/java/design.xml/TooManyMethods">
+        <properties>
+            <property name="maxmethods" value="10"/>
+        </properties>
+    </rule>
+
+    <!-- 2. Long Method -->
+    <rule ref="category/java/design.xml/NcssCount">
+        <properties>
+            <property name="methodReportLevel" value="15"/>
+        </properties>
+    </rule>
+
+    <!-- 3. Data Clumps -->
+    <rule ref="category/java/design.xml/ExcessiveParameterList">
+        <properties>
+            <property name="minimum" value="4"/>
+        </properties>
+    </rule>
+
+    <!-- 4. Feature Envy / Coupling -->
+    <rule ref="category/java/design.xml/CouplingBetweenObjects">
+        <properties>
+            <property name="threshold" value="3"/>
+        </properties>
+    </rule>
+
+</ruleset>
