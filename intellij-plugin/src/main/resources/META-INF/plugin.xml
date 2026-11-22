@@ -1,0 +1,35 @@
+<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
+<idea-plugin>
+    <id>com.amie.refactor.refactorflow</id>
+    <name>RefactorFlow: Code-Aware Refactoring Planner</name>
+    <vendor email="amandi@sci.sjp.ac.lk" url="https://www.sjp.ac.lk">Amandi Athukorala</vendor>
+
+    <description><![CDATA[
+    <b>RefactorFlow</b> is a Goal-Oriented, Dependency-Aware, and Explainable Refactoring
+    Workflow Planner for Java Systems.
+    <br/><br/>
+    <b>Features:</b>
+    <ul>
+        <li>Static Code Smell Detection (PMD integration: God Class, Long Method, Feature Envy, Data Clumps)</li>
+        <li>Object-Oriented Quality Metrics (CK Tool: CBO, WMC, LCOM)</li>
+        <li>AST & Local Dependency Analysis (JavaParser Call Graph, Fan-In / Fan-Out)</li>
+        <li>Goal-Oriented Workflow Planning (Maintainability vs Complexity vs Balanced)</li>
+        <li>Automated Side-by-Side Diff Previews using native IntelliJ Diff Viewer</li>
+        <li>Traceable, Code-Aware Explanations</li>
+    </ul>
+    ]]></description>
+
+    <!-- Compatibility with all IntelliJ Platform products (IDEA Community & Ultimate) -->
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.java</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Registers the RefactorFlow Tool Window in the Right Sidebar -->
+        <toolWindow id="RefactorFlow"
+                    anchor="right"
+                    secondary="false"
+                    canCloseContent="true"
+                    icon="AllIcons.Actions.RefactoringBulb"
+                    factoryClass="com.amie.refactor.plugin.RefactorFlowToolWindowFactory"/>
+    </extensions>
+</idea-plugin>
